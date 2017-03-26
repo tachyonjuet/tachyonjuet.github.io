@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 		<head>
-		<link id="page_favicon" href="tach.png" rel="icon" type="image/x-icon"/>
+		<link id="page_favicon" href="dextra.ico" rel="icon" type="image/x-icon"/>
 			<title>TACHYON 2K17</title>
  			<style>
 				 @font-face {
@@ -89,7 +89,7 @@
 					transform:translate(-50%);
 					animation:loadin 2s 4s forwards;
 					opacity:0;
-					font-size:4vh;
+					font-size:2vw;
 				}
 				.sponsor:hover
 				{
@@ -123,6 +123,27 @@
 				.countdown:hover{
 					color:black;
 				}
+				.notify
+				{
+					background:black;
+					color:white;
+					text-align:center;
+					font-size:4vw;
+					z-index:0;
+					opacity:0;
+					position:fixed;
+					left:50%;
+					top:50%;
+					transform:translate(-50%,-50%);
+				}
+				
+				@media only screen and (orientation:portrait) { 
+					
+					.notify{z-index:10;opacity:1;}
+				}
+					::-webkit-scrollbar { 
+    			display: none; 
+			}
 			</style>
   			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
       		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -130,6 +151,8 @@
       		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		</head>
 		<body style="overflow:hidden;margin:0 0 0 0;background:black;">
+				<div class="notify">Please rotate the device to landscape mode for a better experience</div>
+		
 			<a class="bro" href="broc.pdf">DOWNLOAD SPONSORSHIP BROCHURE</a>
 			<a class="modal-trigger" href="#modal1"><div class="sponsor" style="font-family:dextrafont;">Who funded the last war?</div></a>
 			<div class="marvel"></div>

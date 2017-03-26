@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+		<head>
+		<link id="page_favicon" href="tach.png" rel="icon" type="image/x-icon"/>
+			<title>TACHYON 2K17</title>
+ 			<style>
+				 @font-face {
+					font-family: dextrafont;
+					src: url(df.ttf);
+				}
+				.dc
+				{
+					position:absolute;
+					width:50%;
+					right:0px;
+					height:100vh;
+					background:url(dcb.jpg);
+					background-size:100% 100%;
+					opacity:0;
+					animation: loadin 2s 2s forwards ease-in;
+				}
+				.dc:hover
+				{
+					background:url(dc.jpg);
+					background-size:100% 100%;
+				}
+				.marvel
+				{
+					position:absolute;
+					width:50%;
+					height:100vh;
+					background:url(marvelb.jpg);
+					background-size:100% 100%;
+					opacity:0;
+					animation: loadin 2s 2s forwards ease-in;
+				}
+				.marvel:hover
+				{
+					background:url(marvel.jpg);	
+					background-size:100% 100%;
+				}
+				.logo
+				{
+					position:absolute;
+					left:50%;
+					top:30%;
+					width:30%;
+					height:30%;
+					transform:translate(-50%,-50%) scale(1.5);
+					background:url(logo.png);	
+					background-size:100% 100%;
+					opacity:0;
+					animation: loadin 2s 0s forwards ease-in; 
+				}
+				.logo:hover
+				{
+					background:url(logored.png);	
+					background-size:100% 100%;
+				}
+				
+				.bro
+				{
+					font-family:Segoe 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+					z-index:5;
+					position:absolute;
+					color:white;
+					text-align: center;
+					bottom:0.9%;
+					width:30%;
+					height:5%;
+					left:50%;
+					transform:translate(-50%);
+					animation:loadin 2s 4s forwards;
+					opacity:0;
+					font-size:0.95vw;
+				}
+				
+				.sponsor
+				{
+			
+					z-index:5;
+					position:absolute;
+					color:red;
+					text-align: center;
+					bottom:5vh;
+					width:30%;
+					height:5%;
+					left:50%;
+					transform:translate(-50%);
+					animation:loadin 2s 4s forwards;
+					opacity:0;
+					font-size:4vh;
+				}
+				.sponsor:hover
+				{
+					color:white;
+				}
+				@keyframes loadin
+				{
+					0%{opacity:0;}
+					100%{opacity:1;}
+				}
+				.modal {  max-height: 100% !important ; overflow-y: hidden !important ;}
+				.s0
+				{
+					width:100%;
+				}
+				.countdown
+				{
+					transform:scale(1);
+					width:100%;
+					font-family:dextrafont;
+					font-size:4.5vh;
+					text-align:center;
+						color:white;
+					position:absolute;
+					left:50%;
+					top:50%;
+					transform:translate(-50%);
+					opacity:0;
+					animation: loadin 2s 4s forwards ease-in; 
+				}
+				.countdown:hover{
+					color:black;
+				}
+			</style>
+  			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+      		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+      		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		</head>
+		<body style="overflow:hidden;margin:0 0 0 0;background:black;">
+			<a class="bro" href="broc.pdf">DOWNLOAD SPONSORSHIP BROCHURE</a>
+			<a class="modal-trigger" href="#modal1"><div class="sponsor" style="font-family:dextrafont;">Who funded the last war?</div></a>
+			<div class="marvel"></div>
+			<div class="dc"></div>
+			<div class="logo"></div>
+			<div class="countdown">war begins in
+				<div id="clockdiv">
+					<div style="margin-top:-1%;font-size:2.5vw;">
+						<span class="days"></span><a style="color:red;">days</a>
+						<span class="hours"></span><a style="color:red;">hours</a>
+						<span class="minutes"></span><a style="color:red;">minutes</a>
+						<span class="seconds"></span><a style="color:red;">seconds</a>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div id="modal1" class="modal bottom-sheet black">
+				<div class="modal-content">
+					<h4 style="color:white;font-family:dextrafont;">Sponsors</h4>
+					<img class="s0" src="sponsors/sponsors.jpg" />
+					<!--<table>
+						<tr>
+							<td class="s0"></td>
+							<td class="s1"></td>
+							<td class="s2"></td>
+							<td class="s3"></td>
+							<td class="s4"></td>
+						</tr>
+						<br>
+						<tr><td></td></tr>
+						<tr>
+							<td class="s5"></td>
+							<td class="s6"></td>
+							<td class="s7"></td>
+							<td class="s8"></td>
+							<td class="s9"></td>
+						</tr>
+					</table>-->		
+				</div>
+				
+			</div>
+			<script>
+				$(document).ready(function()
+			 	{
+					$('.modal').modal();
+  				});
+			</script>
+			<script>
+				function getTimeRemaining(endtime) {
+				var t = Date.parse(endtime) - Date.parse(new Date());
+				var seconds = Math.floor((t / 1000) % 60);
+				var minutes = Math.floor((t / 1000 / 60) % 60);
+				var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+				var days = Math.floor(t / (1000 * 60 * 60 * 24));
+				return {
+					'total': t,
+					'days': days,
+					'hours': hours,
+					'minutes': minutes,
+					'seconds': seconds
+				};
+				}
+				function initializeClock(id, endtime) {
+				var clock = document.getElementById(id);
+				var daysSpan = clock.querySelector('.days');
+				var hoursSpan = clock.querySelector('.hours');
+				var minutesSpan = clock.querySelector('.minutes');
+				var secondsSpan = clock.querySelector('.seconds');
+				
+				function updateClock() {
+					var t = getTimeRemaining(endtime);
+				
+					daysSpan.innerHTML = t.days;
+					hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+					minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+					secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+				
+					if (t.total <= 0) {
+					clearInterval(timeinterval);
+					}
+				}
+				updateClock();
+				var timeinterval = setInterval(updateClock, 1000);
+				}
+				var deadline = 'April 28 2017 23:59:59 GMT+0530';
+				initializeClock('clockdiv', deadline);
+			</script>
+		</body>
+</html>	
